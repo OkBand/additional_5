@@ -4,7 +4,7 @@ module.exports = function check(str, bracketsConfig) {
   var i, symbol, expected;
 
   var opening = ['[', '{', '(', '|', '1', '3', '5', '7', '8'];
-  var closing = [']', '}', ')', '|' '2', '4', '6', '7', '8'];
+  var closing = [']', '}', ')', '|', '2', '4', '6', '7', '8'];
 
   for (i = 0; i < l; i++) {
     symbol = str[i];
