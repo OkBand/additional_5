@@ -16,9 +16,6 @@ module.exports = function check(str, bracketsConfig) {
       expected = opening[closing.indexOf(symbol)];
         if (array.length === 0 || (array.pop() !== expected)) {
         return false;
-        else {
-          return true;
-        };
       };
     };
 };
