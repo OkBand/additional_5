@@ -1,22 +1,22 @@
 module.exports = function check(str, bracketsConfig) {
-  var array = [];
-  var l = str.length;
-  var i, symbol, expected;
-
   var opening = ['[', '{', '(', '|', '1', '3', '5', '7', '8'];
   var closing = [']', '}', ')', '|', '2', '4', '6', '7', '8'];
+  var brStack = [];
+  var length = str.length;
+  var stackItem, brMatch;
 
-  for (i = 0; i < l; i++) {
-    symbol = str[i];
+  for (i = 0; i < length; i++) {
+    stackItem = str[i];
 
-    if (opening.indexOf(symbol) > -1) {
-      array.push(symbol);
-    }
-    else if (closing.indexOf(symbol) > -1) {
-      expected = opening[closing.indexOf(symbol)];
-        if (array.length === 0 || (array.pop() !== expected)) {
+    if (opening.indexOf(stackItem) > -1) {
+      brStack.push(stackItem);
+    };
+    if (closing.indexOf(stackItem) > -1) {
+      brMatch = opening[closing.indexOf(stackItem)];
+      if (brStack.length === 0 || (brStack.pop() !== brMatch)){
         return false;
       };
     };
-};
+  };
+  return true;
 };
