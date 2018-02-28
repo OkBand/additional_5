@@ -10,7 +10,7 @@ module.exports = function check(str, bracketsConfig) {
 
     if (opening.indexOf(stackItem) > -1) {
       brStack.push(stackItem);
-    };
+    }
     if (closing.indexOf(stackItem) > -1) {
       brMatch = opening[closing.indexOf(stackItem)];
       if (brStack.length === 0 || (brStack.pop() !== brMatch)){
@@ -18,5 +18,5 @@ module.exports = function check(str, bracketsConfig) {
       };
     };
   };
-  return true;
+    return (brStack.length === 0) ? true : false;
 };
